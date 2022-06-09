@@ -1,0 +1,76 @@
+.container{
+    display: grid;
+    width:100%;
+    
+}
+.images{
+
+    grid-column: 2/2;
+    grid-row: 1/2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    width: 500px;
+    margin: auto;
+
+}
+
+.navContainer{
+    
+    display: flex;
+    justify-content: center;
+    grid-column: 2;
+    height: 60px;
+    margin: auto;
+    gap: 2px;
+}
+
+.navContainer > .navButton{
+    border-radius: 50%;
+    width: 1rem;
+    height: 1rem;
+    
+    background-color: rgba(114, 95, 95, 0.514);
+
+}
+
+.navContainer > .navButton[data-active]{
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    background-color: rgba(158, 158, 158, 0.801);
+}
+
+.leftBtn{
+    position: relative;
+    height: 150px;
+    grid-row: 1;
+    margin: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    
+
+    
+}
+.rightBtn{
+    position: relative;
+    height: 150px;
+    grid-column: 3/3;
+    grid-row: 1;
+    margin-top: auto;
+    margin-bottom: auto;
+    
+}
+
+.imgList {
+    position: absolute;
+    opacity: 0;
+}
+
+.images [data-active] {
+    opacity: 1;
+    z-index: 15; 
+}
+
+ul{
+    list-style: none;
+}
