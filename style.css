@@ -1,6 +1,12 @@
 .container{
     display: grid;
     width:100%;
+    grid-template-columns: 2.5fr 2fr 2.5fr;
+}
+
+.container > ul{
+    width: 45rem;
+    height: 45rem;
     
 }
 .images{
@@ -12,9 +18,11 @@
     align-items: center;
     height: 500px;
     width: 500px;
-    margin: auto;
+    transition: opacity 200ms;
+
 
 }
+
 
 .navContainer{
     
@@ -24,6 +32,7 @@
     height: 60px;
     margin: auto;
     gap: 2px;
+    z-index: 100;
 }
 
 .navContainer > .navButton{
@@ -38,39 +47,96 @@
 .navContainer > .navButton[data-active]{
     box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
     background-color: rgba(158, 158, 158, 0.801);
+    transition: all 250ms;
 }
 
 .leftBtn{
     position: relative;
     height: 150px;
+    width: 50px;
     grid-row: 1;
-    margin: 0;
+    grid-column: 2;
     margin-top: auto;
     margin-bottom: auto;
-    
+    left: 10%;
+    z-index: 100;
+    border-style: none;
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 25px;
+    transition: all 200ms;
 
     
 }
+
+
 .rightBtn{
     position: relative;
     height: 150px;
+    width: 50px;
     grid-column: 3/3;
     grid-row: 1;
     margin-top: auto;
     margin-bottom: auto;
-    
+    align-self: flex-end;
+    right: 5.3rem;
+    z-index: 100;
+    border-style: none;
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 25px;
+    transition: all 200ms;
+}
+
+
+.rightBtn:hover {
+    border-right: 1px solid black;
+    font-size: 60px;
+    transition: all 250ms;
+}
+.rightBtn:active{
+    border-radius: 50%;
+    font-size: 69px;
+}
+
+
+.leftBtn:hover{
+    border-left: 1px solid black;
+    font-size: 69px;
+    transition: all 250ms;
+}
+.leftBtn:active{
+    border-radius: 50%;
+    font-size: 65px;
 }
 
 .imgList {
     position: absolute;
     opacity: 0;
+   
+
 }
 
 .images [data-active] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     opacity: 1;
-    z-index: 15; 
+    z-index: 15;
+    width: 550px;
+    height: 550px;
+    border-radius: 2%;
+    overflow: hidden;
+    transition: opacity 200ms;
+}
+
+.images{
+    
+    width: 600px;
+    height: 600px;
+    transition: opacity 140ms;
+
+    
 }
 
 ul{
-    list-style: none;
+   list-style: none;
 }
