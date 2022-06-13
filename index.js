@@ -3,6 +3,8 @@
 
 
 
+
+
 const display = () => {
 
     const buttons = document.querySelectorAll("[data-image-button]")
@@ -11,27 +13,21 @@ const display = () => {
     const createNavBtn = () => {
         let indexBtn = 0
         const imageButtons = document.querySelectorAll("[data-image]")
-        imageButtons.forEach( e => {
+        imageButtons.forEach( () => {
                 const createNav = document.createElement("div")
                     createNav.classList.add("navButton")
                     navButtons.appendChild(createNav)
                     createNav.id = indexBtn;
                     indexBtn += 1
-                    
-                    
+           
             } )
             imageButtons[0].dataset.active = true
             navButtons.children[0].dataset.active = true
             
-        
     }
 
-   
-    
-    navButtons.addEventListener("click" ,e => {
+    const nextImage =(e)=>{
 
-        
-        
         const images = document.querySelectorAll("[data-image]")
         const activeNav = navButtons.querySelector("[data-active]")
         const targetImage = e.target.id
@@ -50,32 +46,47 @@ const display = () => {
             images[targetImage].dataset.active = true;
         
             delete activeNav.dataset.active
-           
             
+            
+        
+    }
+    
+    
 
             
-            
-            
+    
+    navButtons.addEventListener("click" ,e => {
+                nextImage(e)
+    
     })
     
     
-    
+    const TimerSkip = () => {
+            
+            setInterval(() => {
+                const repeatClick = document.getElementById("rightBtn").click();
+                console.log(repeatClick)
+
+                        }, 5000)
+   }
+   TimerSkip()
     
     
     buttons.forEach(button => {
-        button.addEventListener("click", () => {
+        button.addEventListener("click", () =>{
             
             const swap = button.dataset.imageButton === "right" ? 1 : -1
             const images = button.closest("[data-image-slider]")
                                  .querySelector("[data-images]")
-    
+        
             
             
-    
+        
             const activeImage = images.querySelector("[data-active]")
             const activeNav = navButtons.querySelector("[data-active]")
             
             let nextIndex = [...images.children].indexOf(activeImage) + swap
+            
             if(nextIndex < 0)
                 {
                     nextIndex = images.children.length -1;
@@ -95,11 +106,13 @@ const display = () => {
           
            
         })
-    }) 
+    })
     
     createNavBtn()
+   
 }
 
+ 
 
 display()
 
